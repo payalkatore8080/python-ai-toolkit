@@ -1,0 +1,31 @@
+venv/
+__pycache__/
+*.pyc
+.env
+chat_history.json
+.vscode/
+
+# Database and private chat history
+*.db
+*.sqlite
+*.sqlite3
+web_chat_history.json
+chat_history*.json
+
+# Testing and logs
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Local configuration
+instance/
+.env.*
+
+# Backup files
+*.bak
+
+# Backup files
+*backup*
+*.bak
+*.old

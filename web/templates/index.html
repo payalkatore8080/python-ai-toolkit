@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python AI Toolkit</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+            <div class="brand">
+                <div class="brand-icon">&#10022;</div>
+                <span>Python AI Toolkit</span>
+            </div>
+
+            <button id="new-chat-button" class="new-chat-button">
+                <span>+</span> New chat
+            </button>
+
+            <input
+                type="text"
+                id="chat-search"
+                class="chat-search"
+                placeholder="Search conversations"
+            >
+
+            <h3 class="history-heading">Your conversations</h3>
+
+            <div id="chat-history" class="chat-history">
+                <p class="history-empty">No previous chats</p>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button id="theme-toggle" class="sidebar-action">
+                Dark Mode
+            </button>
+
+            <div class="sidebar-footer">
+                <div class="footer-avatar">{{ username[:1].upper() }}</div>
+                <div class="user-profile-info">
+                    <strong>{{ username }}</strong>
+                    <small>Logged in</small>
+                </div>
+                <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="top-header">
+            <div class="header-title">
+                <span class="status-dot"></span>
+                <span>AI Assistant</span>
+            </div>
+
+            <div class="header-actions">
+                <button id="clear-chat-button" class="header-button" type="button">
+                    Clear chat
+                </button>
+
+                <button id="export-button" class="header-button" type="button">
+                    Export
+                </button>
+            </div>
+        </header>
+
+        <!-- CHAT AREA -->
+        <section id="chat-box" class="chat-box">
+
+            <div class="welcome-screen">
+                <div class="welcome-icon">&#10022;</div>
+
+                <h1>How can I help you today?</h1>
+
+                <p>
+                    Ask me anything. Let's learn, create and solve problems together.
+                </p>
+
+                <div class="suggestion-grid">
+                    <div class="suggestion-card">
+                        <span>&lt;/&gt;</span>
+                        <strong>Write code</strong>
+                        <small>Build something with Python</small>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <span>&#9638;</span>
+                        <strong>Learn something</strong>
+                        <small>Understand a new concept</small>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <span>&#9998;</span>
+                        <strong>Improve writing</strong>
+                        <small>Write and improve your text</small>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <span>&#10023;</span>
+                        <strong>Get ideas</strong>
+                        <small>Explore creative possibilities</small>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- MESSAGE COMPOSER -->
+        <div class="composer-wrapper">
+
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Message Python AI Toolkit..."
+                    autocomplete="off"
+                >
+
+                <button id="stop-button" type="button" hidden>
+                    Stop
+                </button>
+
+                <button id="send-button" type="button" aria-label="Send message">
+                    &#8593;
+                </button>
+
+            </div>
+
+            <p class="composer-note">
+                Python AI Toolkit can make mistakes. Verify important information.
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
